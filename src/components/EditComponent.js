@@ -53,11 +53,11 @@ export default class EditComponent extends Component {
                 <h3>Edit New Server</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
-                        <label>Add Host Name:  </label>
+                        <label>Edit Host Name:  </label>
                         <input type="text" value={this.state.name} className="form-control" onChange={this.onChangeHostName}/>
                     </div>
                     <div className="form-group">
-                        <label>Add Server Port: </label>
+                        <label>Edit Server Port: </label>
                         <input type="text" value={this.state.port} className="form-control" onChange={this.onChangePort}/>
                     </div>
                     <div className="form-group">

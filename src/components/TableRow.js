@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 
 class TableRow extends Component {
     constructor(props) {
         super(props);
         this.delete = this.delete.bind(this);
+
+        this.state = {toIndex: false};
     }
     delete() {
         axios.get('http://localhost:4200/serverport/delete/'+this.props.obj._id)
             .then(console.log('Deleted'))
+            .then(() => this.setState(() => ({toIndex: true})))
             .catch(err => console.log(err))
     }
   render() {
+    if (this.state.toIndex === true) {
+        return <Redirect to='/index' />;
+    }
+
     return (
         <tr>
           <td>
